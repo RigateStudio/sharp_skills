@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import ReactDOM from "react-dom";
-import Header from "../src/components/Header"
+import Header from "../src/components/layouts/Header"
 import Home from "../src/pages/Home"
 import {
   BrowserRouter as Router,

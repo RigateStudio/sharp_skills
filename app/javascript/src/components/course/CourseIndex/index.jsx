@@ -26,3 +26,4 @@ const CourseIndex = () => {
 };
 
 export default CourseIndex;
+ 
