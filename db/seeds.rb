@@ -12,6 +12,8 @@ TrainingSession.destroy_all
       password: "123123")
 end
 
+puts "10 students have been created"
+
 3.times do 
     User.create(
       first_name:Faker::Name.first_name,
@@ -21,9 +23,14 @@ end
       password: "123123")
 end
 
+puts "3 teachers have been created"
+
+
 10.times do
     TrainingSession.create(
         teacher: User.last,
         students: User.first(3)
         )
 end
+
+puts "10 trainingsessions sessions have been created"
