@@ -1,7 +1,7 @@
 # app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
   protect_from_forgery unless: -> { request.format.json? }
-  before_action :authenticate_user!, only: [:autenticate_admin!]
+  before_action :authenticate_user!, only: [:authenticate_admin!]
 
   def render_jsonapi_response(resource)
     if resource.errors.empty?
@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def autenticate_admin!
-    if current_user.type != "admin"
+  def authenticate_admin!
+    if current_user.role != "admin"
       render json: {error: "Current user must be an admin."}, status:403
       return false
     end

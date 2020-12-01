@@ -3,7 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   include Devise::JWT::RevocationStrategies::JTIMatcher
 
-  has_many :posts
+  enum role: [:admin, :student, :teacher]
+
+  has_many :courses
+  
+  has_many :registrations
+  has_many :training_sessions, through: :registrations
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

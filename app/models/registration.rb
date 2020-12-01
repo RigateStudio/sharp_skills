@@ -1,0 +1,2 @@
+class RegistrationJointable < ApplicationRecord
+end

@@ -29,7 +29,7 @@ const App = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
-    <App name="React" />,
-    document.body.appendChild(document.createElement("div"))
+    <App/>,
+    document.getElementById("root")
   );
 });
