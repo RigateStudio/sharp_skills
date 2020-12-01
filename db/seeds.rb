@@ -3,7 +3,7 @@ require 'faker'
 User.destroy_all
 TrainingSession.destroy_all
 
-10.times do 
+10.times do
     User.create(
       first_name:Faker::Name.first_name,
       last_name: Faker::Name.last_name,
@@ -14,7 +14,7 @@ end
 
 puts "10 students have been created"
 
-3.times do 
+3.times do
     User.create(
       first_name:Faker::Name.first_name,
       last_name: Faker::Name.last_name,
