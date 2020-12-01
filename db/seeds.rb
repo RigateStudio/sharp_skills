@@ -33,4 +33,4 @@ puts "3 teachers have been created"
         )
 end
 
-puts "10 trainingsessions sessions have been created"
+puts "10 trainingsessions have been created"
