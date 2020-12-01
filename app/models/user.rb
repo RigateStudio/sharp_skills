@@ -6,7 +6,7 @@ class User < ApplicationRecord
   enum role: [:admin, :student, :teacher]
 
   has_many :courses
-  
+
   has_many :registrations
   has_many :training_sessions, through: :registrations
 
