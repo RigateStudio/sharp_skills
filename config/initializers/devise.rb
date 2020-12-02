@@ -13,7 +13,7 @@ Devise.setup do |config|
   config.skip_session_storage = [:http_auth, :params_auth]
 
   config.jwt do |jwt|
-    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.secret = "ENV['DEVISE_JWT_SECRET_KEY']"
 		jwt.dispatch_requests = [
 	    ['POST', %r{^/api/login$}]
 	  ]
