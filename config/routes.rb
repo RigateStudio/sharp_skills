@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :rooms
-  resources :training_sessions
-  resources :categories
+
   default_url_options({host:'localhost:3000'})
 
   devise_for :users,
@@ -21,6 +19,9 @@ Rails.application.routes.draw do
   
   scope '/api', defaults: { format: :json } do
     resources :courses
+    resources :rooms
+    resources :training_sessions
+    resources :categories
   end
 
   namespace :api, defaults: { format: :json } do
