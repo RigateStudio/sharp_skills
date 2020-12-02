@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:update, :create, :destroy]
   before_action :authenticate_admin!, only: [:update, :create, :destroy]
   # GET /courses
   # GET /courses.json
@@ -25,9 +26,9 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
+      puts params
       if @course.save
-        render json: current_user# :show, status: :created, location: @course 
+        render json: {course: @course, categories: @course.categories}
       else
         render json: @course.errors, status: :unprocessable_entity 
       end
@@ -39,7 +40,8 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.json { render :show, status: :ok, location: @course }
+        format.json {  render json: {course: @course, categories: @course.categories, training_sessions: @course.training_sessions}     }
+
       else
         format.html { render :edit }
         format.json { render json: @course.errors, status: :unprocessable_entity }
@@ -65,6 +67,7 @@ class CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:name)
+      params.require(:course).permit(:name, :teacher_id, category_ids:[])
     end
+
 end

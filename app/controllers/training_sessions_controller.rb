@@ -1,5 +1,6 @@
 class TrainingSessionsController < ApplicationController
   before_action :set_training_session, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:update, :create, :destroy]
 
   # GET /training_sessions
   # GET /training_sessions.json
@@ -10,6 +11,7 @@ class TrainingSessionsController < ApplicationController
   # GET /training_sessions/1
   # GET /training_sessions/1.json
   def show
+    render json: {training_sessions: @training_session, students: @training_session.students}
   end
 
   # GET /training_sessions/new
@@ -29,7 +31,7 @@ class TrainingSessionsController < ApplicationController
     respond_to do |format|
       if @training_session.save
         format.html { redirect_to @training_session, notice: 'Training session was successfully created.' }
-        format.json { render :show, status: :created, location: @training_session }
+        format.json {   render json: {training_sessions: @training_session, students: @training_session.students}   }
       else
         format.html { render :new }
         format.json { render json: @training_session.errors, status: :unprocessable_entity }
@@ -43,7 +45,7 @@ class TrainingSessionsController < ApplicationController
     respond_to do |format|
       if @training_session.update(training_session_params)
         format.html { redirect_to @training_session, notice: 'Training session was successfully updated.' }
-        format.json { render :show, status: :ok, location: @training_session }
+        format.json {   render json: {training_sessions: @training_session, students: @training_session.students}   }
       else
         format.html { render :edit }
         format.json { render json: @training_session.errors, status: :unprocessable_entity }
@@ -69,6 +71,6 @@ class TrainingSessionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def training_session_params
-      params.require(:training_session).permit(:date)
+      params.require(:training_session).permit(:date, :room_id, :course_id, student_ids:[])
     end
 end
