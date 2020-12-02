@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :rooms
+  resources :training_sessions
+  resources :categories
   default_url_options({host:'localhost:3000'})
 
   devise_for :users,
