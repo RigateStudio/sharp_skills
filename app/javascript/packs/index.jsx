@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import ReactDOM from "react-dom";
-import Header from "../src/components/layouts/Header"
+import Header from "../src/components/Header/Index"
 import Home from "../src/pages/Home"
 import {
   BrowserRouter as Router,
@@ -21,6 +21,9 @@ const App = () => {
       <Switch>
         <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/create-course">
+          <CreateCourse />
         </Route>
       </Switch>
     </Router>

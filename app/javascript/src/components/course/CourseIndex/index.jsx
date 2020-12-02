@@ -1,29 +1,29 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 const CourseIndex = () => {
-  const [posts, setPosts] = useState([]);
+  const [courses, setCourses] = useState([]);
 
-  const fetchPosts = () => {
-    fetch("http://localhost:3000/api/courses")
+  const fetchCourses = () => {
+    fetch("/api/courses")
       .then((response) => response.json())
       .then((response) => {
-        setPosts(response);
+        console.log(response)
+        setCourses(response);
       });
   };
 
   useEffect(() => {
-    fetchPosts();
+    fetchCourses();
   }, []);
 
   return (
-    <div className="Posts">
-      {posts.map((post) => {
-        return <Post description={post.description} url={post.url} />;
+    <div className="Courses">
+      {courses.map((course) => {
+        return  <h4>{course.name}</h4>;
       })}
     </div>
   );
 };
 
 export default CourseIndex;
- 
