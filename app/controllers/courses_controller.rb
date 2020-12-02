@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    render json: {teacher: @course.teacher, course: @course, categories: @course.categories, training_sessions: @course.training_sessions}
   end
 
   # GET /courses/new

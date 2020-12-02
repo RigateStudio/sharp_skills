@@ -1,7 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :authenticate_user!, only: [:update, :create, :destroy]
-  before_action :authenticate_student!, only: [:update, :create, :destroy]
-
     def create
       build_resource(sign_up_params)
       resource.save

@@ -10,6 +10,8 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "js-cookie": "^2.2.1",
+    "js-cookies": "^1.0.4",
     "poppers.js": "^1.16.1",
     "prop-type": "^0.0.1",
     "prop-types": "^15.7.2",

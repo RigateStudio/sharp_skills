@@ -23,7 +23,6 @@ const App = () => {
           <Home />
         </Route>
         <Route path="/create-course">
-          <CreateCourse />
         </Route>
       </Switch>
     </Router>

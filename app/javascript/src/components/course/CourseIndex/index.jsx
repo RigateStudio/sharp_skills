@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CourseIndex = () => {
   const [courses, setCourses] = useState([]);
@@ -20,7 +21,7 @@ const CourseIndex = () => {
   return (
     <div className="Courses">
       {courses.map((course) => {
-        return  <h4>{course.name}</h4>;
+        return  <Link to>{course.name}</Link>;
       })}
     </div>
   );
