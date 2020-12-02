@@ -22,22 +22,28 @@ ActiveRecord::Schema.define(version: 2020_12_01_230014) do
   end
 
   create_table "course_categories", force: :cascade do |t|
-    t.bigint "courses_id"
-    t.bigint "categories_id"
-    t.index ["categories_id"], name: "index_course_categories_on_categories_id"
-    t.index ["courses_id"], name: "index_course_categories_on_courses_id"
+    t.bigint "course_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_course_categories_on_category_id"
+    t.index ["course_id"], name: "index_course_categories_on_course_id"
   end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
+    t.bigint "teacher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
   create_table "registrations", force: :cascade do |t|
     t.integer "notation"
+    t.bigint "student_id"
+    t.bigint "training_session_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_registrations_on_student_id"
+    t.index ["training_session_id"], name: "index_registrations_on_training_session_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -48,8 +54,14 @@ ActiveRecord::Schema.define(version: 2020_12_01_230014) do
 
   create_table "training_sessions", force: :cascade do |t|
     t.datetime "date"
+    t.bigint "teacher_id"
+    t.bigint "course_id"
+    t.bigint "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_training_sessions_on_course_id"
+    t.index ["room_id"], name: "index_training_sessions_on_room_id"
+    t.index ["teacher_id"], name: "index_training_sessions_on_teacher_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,5 @@
 require 'faker'
+require 'date'
 
 User.destroy_all
 TrainingSession.destroy_all
@@ -25,11 +26,29 @@ end
 
 puts "3 teachers have been created"
 
+10.times do
+  Category.create(name: Faker::Hacker.adjective )
+end
+
+5.times do 
+  Course.create(
+    name: Faker::Hacker.verb + Faker::Hipster.word,
+    teacher_id: User.last.id,
+    categories: Category.all.sample(rand(3))
+  )
+end
+
+5.times do
+  Room.create(number: rand(10))
+end
 
 10.times do
     TrainingSession.create(
-        teacher: User.last,
-        students: User.first(3)
+        course_id: Course.all.sample.id,
+        room_id: Room.all.sample.id,
+        teacher_id: User.last.id,
+        students: User.first(3),
+        date: DateTime.new(2001,2,3,4,5,6)
         )
 end
 
