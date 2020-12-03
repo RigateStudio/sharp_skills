@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
 
   default_url_options({host:'localhost:3000'})
 
@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   controllers: {
     sessions: 'sessions',
     registrations: 'registrations'
-  }  
-  
-  
+  }
+
+
   scope '/api', defaults: { format: :json } do
     resources :courses
     resources :rooms
@@ -27,9 +27,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: %w[show]
   end
-  
 
-  root "pages#index"
+
+  root to:"pages#index"
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
