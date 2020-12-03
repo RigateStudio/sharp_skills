@@ -17,7 +17,7 @@ const Header = () => {
   console.log("Header")
   console.log(store.currentUser)
   return (
-    <Navbar id="navbar" expand="lg">
+    <Navbar id="nav" expand="lg">
       <NavLink className="navbar-brand" to="/landing-page">
       Sharpskills
       </NavLink>

@@ -21,7 +21,7 @@ const CourseIndex = () => {
   return (
     <div className="Courses">
       {courses.map((course) => {
-        return  <Link to>{course.name}</Link>;
+        return  <Link to="/">{course.name}</Link>;
       })}
     </div>
   );

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-get "*path", to: redirect('/')
   default_url_options({host:'localhost:3000'})
 
   devise_for :users,

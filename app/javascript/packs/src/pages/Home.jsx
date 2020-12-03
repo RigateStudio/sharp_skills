@@ -8,8 +8,9 @@ const Home = () => {
   return (
     <div>
       <CourseIndex/>
+
     </div>
   )
 }
 
-export default Home
+export default Home;
