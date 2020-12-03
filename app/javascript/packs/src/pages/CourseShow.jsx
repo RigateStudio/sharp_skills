@@ -1,8 +1,6 @@
 import React from "react"
-import CourseForm from "../components/course/CourseForm"
-import Container from "react-bootstrap/Container"
-import Registration from "../components/Registration";
-import Header from "../components/Header";
+import CourseShow from "../components/course/CourseShow"
+
 
 const CreateShow = () => {
     

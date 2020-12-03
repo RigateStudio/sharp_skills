@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { StoreContext } from "../../store/index.jsx";
+import { StoreContext }  from "../../store/index.jsx";
 
 const Header = () => {
   const store = React.useContext(StoreContext);
@@ -17,22 +17,22 @@ const Header = () => {
             Home
           </NavLink>
           <NavDropdown title="Account" id="basic-nav-dropdown">
-            {store.current_user ? (
-              <>
-                <NavLink className="dropdown-item" to="/login">
-                  Log in
-                </NavLink>
-                <NavLink className="dropdown-item" to="/register">
-                  Register
-                </NavLink>
-              </>
-            ) : (
+            {store.currentUser ? (
               <>
                 <NavLink className="dropdown-item" to="/register">
                   My account
                 </NavLink>
                 <NavLink className="dropdown-item" to="/login">
                   Log out
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink className="dropdown-item" to="/login">
+                  Log in
+                </NavLink>
+                <NavLink className="dropdown-item" to="/register">
+                  Register
                 </NavLink>
               </>
             )}
