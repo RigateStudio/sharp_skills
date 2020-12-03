@@ -14,7 +14,6 @@ const Home = () => {
             <div className="category"> insert filters</div>
         </div>
         <CourseIndex />
-        <Registration />
       </div>
   )
 }

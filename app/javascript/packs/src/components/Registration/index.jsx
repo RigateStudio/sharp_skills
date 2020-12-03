@@ -2,15 +2,15 @@ import React, { useContext, useState, useEffect } from "react";
 import { Container, Button, Form, Alert } from "react-bootstrap";
 import Cookies from "js-cookie";
 import { StoreContext } from "../../store/index.jsx";
-
+///////////////////////
 const Registration = () => {
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState({role:"student"});
   const [token, setToken] = useState("");
   const store = useContext(StoreContext);
   const [errors, setErrors] = useState([]);
 
   const fetchUser = () => {
-    console.log("fetchUser");
+    console.log("fetchUser()");
     console.log(input)
     const data = {
       user: {
@@ -46,6 +46,8 @@ const Registration = () => {
           console.log("setErrors");
           setErrors(response.errors);
         }
+        console.log("store is")
+        console.log(store.currentUser)
       });
   };
 
@@ -122,7 +124,7 @@ const Registration = () => {
           />
         </Form.Group>
         <Form.Label>Choose if you are a Student or a Teacher</Form.Label>
-        <Form.Control as="select" name="role" onMount={handleInputChange} onChange={handleInputChange}>
+        <Form.Control as="select" name="role" onChange={handleInputChange}>
           <option>Student</option>
           <option>Teacher</option>
         </Form.Control>

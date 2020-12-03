@@ -1,5 +1,4 @@
 import React, { createContext, useContext } from "react";
-import ReactDOM from "react-dom";
 import { useLocalObservable, Observer } from "mobx-react";
 
 export const StoreContext = createContext();
@@ -21,4 +20,4 @@ const Test = () => {
   return <Observer>{() => <h1>Hello {store.currentUser?.first_name}</h1>}</Observer>;
 };
 
-export default StoreProvider;
+export default StoreContext;
