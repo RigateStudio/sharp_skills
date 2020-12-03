@@ -2,34 +2,31 @@
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
 
-import PropTypes from 'prop-types'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
+import StoreProvider from "./src/store";
 import ReactDOM from "react-dom";
-import Header from "../src/components/layouts/Header"
-import Home from "../src/pages/Home"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import Header from "./src/components/Header";
+import Home from "./src/pages/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useLocalObservable, Observer } from "mobx-react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <StoreProvider>
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/create-course"></Route>
+        </Switch>
+      </Router>
+    </StoreProvider>
   );
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(
-    <App/>,
-    document.getElementById("root")
-  );
+  ReactDOM.render(<App />, document.getElementById("root"));
 });

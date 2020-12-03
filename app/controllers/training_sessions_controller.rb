@@ -27,16 +27,9 @@ class TrainingSessionsController < ApplicationController
   # POST /training_sessions.json
   def create
     @training_session = TrainingSession.new(training_session_params)
-
-    respond_to do |format|
-      if @training_session.save
-        format.html { redirect_to @training_session, notice: 'Training session was successfully created.' }
-        format.json {   render json: {training_sessions: @training_session, students: @training_session.students}   }
-      else
-        format.html { render :new }
-        format.json { render json: @training_session.errors, status: :unprocessable_entity }
-      end
-    end
+    @training_session.save
+    render_jsonapi_response(@training_session)
+    
   end
 
   # PATCH/PUT /training_sessions/1
