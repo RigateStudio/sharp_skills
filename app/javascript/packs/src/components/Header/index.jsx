@@ -1,23 +1,41 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { StoreContext } from "../../store/index.jsx";
 
 const Header = () => {
+  const store = React.useContext(StoreContext);
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <NavLink to="/landing-page">
+        <Navbar.Brand href="#home">SharpSkills</Navbar.Brand>
+      </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <cTAConnexion to="/Registration">Je m'inscris'</cTAConnexion>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/">Create Course</NavLink>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+          <NavLink className="nav-link" to="/">
+            Home
+          </NavLink>
+          <NavDropdown title="Account" id="basic-nav-dropdown">
+            {store.current_user ? (
+              <>
+                <NavLink className="dropdown-item" to="/login">
+                  Log in
+                </NavLink>
+                <NavLink className="dropdown-item" to="/register">
+                  Register
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink className="dropdown-item" to="/register">
+                  My account
+                </NavLink>
+                <NavLink className="dropdown-item" to="/login">
+                  Log out
+                </NavLink>
+              </>
+            )}
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
