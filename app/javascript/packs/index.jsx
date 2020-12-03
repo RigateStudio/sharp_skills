@@ -8,18 +8,15 @@ import ReactDOM from "react-dom";
 import Home from "./src/pages/Home";
 import Register from "./src/pages/Register";
 import Header from "./src/components/Header"
-import Login from "./src/components/Login"
+import Login from "./src/pages/Login"
 import LandingPage from "./src/pages/LandingPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Observer } from "mobx-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.scss";
 
 const App = () => {
   return (
     <StoreProvider>
-      <Observer>
-        {() => (
           <Router>
           <Header/>
             <Switch>
@@ -38,8 +35,6 @@ const App = () => {
               <Route path="/create-course"></Route>
             </Switch>
           </Router>
-        )}
-      </Observer>
     </StoreProvider>
   );
 };
