@@ -2,20 +2,22 @@ import React, { useContext, useState, useEffect } from "react";
 import { Container, Button, Form, Alert } from "react-bootstrap";
 import Cookies from "js-cookie";
 import { StoreContext } from "../../store/index.jsx";
-
+///////////////////////
 const Registration = () => {
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState({role:"student"});
   const [token, setToken] = useState("");
   const store = useContext(StoreContext);
   const [errors, setErrors] = useState([]);
 
   const fetchUser = () => {
-    console.log("fetchUser");
+    console.log("fetchUser()");
+    console.log(input)
     const data = {
       user: {
         first_name: input.first_name,
         last_name: input.last_name,
         email: input.email,
+        role: input.role,
         password: input.password,
         password_confirmation: input.password_confirmation,
       },
@@ -44,6 +46,8 @@ const Registration = () => {
           console.log("setErrors");
           setErrors(response.errors);
         }
+        console.log("store is")
+        console.log(store.currentUser)
       });
   };
 
@@ -54,6 +58,7 @@ const Registration = () => {
   };
 
   const handleInputChange = (event) => {
+    console.log(input)
     setInput({
       ...input,
       [event.target.name]: event.target.value,
@@ -118,6 +123,11 @@ const Registration = () => {
             placeholder="Password"
           />
         </Form.Group>
+        <Form.Label>Choose if you are a Student or a Teacher</Form.Label>
+        <Form.Control as="select" name="role" onChange={handleInputChange}>
+          <option>Student</option>
+          <option>Teacher</option>
+        </Form.Control>
       </Form>
 
       <Button onClick={clickFetch} variant="primary" type="submit">

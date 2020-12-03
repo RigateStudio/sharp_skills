@@ -7,28 +7,36 @@ import StoreProvider from "./src/store";
 import ReactDOM from "react-dom";
 import Header from "./src/components/Header";
 import Home from "./src/pages/Home";
+import Register from "./src/pages/Register"
 import LandingPage from "./src/pages/LandingPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useLocalObservable, Observer } from "mobx-react";
+import { Observer } from "mobx-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.scss";
 
 const App = () => {
   return (
-    <StoreProvider>
-      <Router>
-        <Header />
-        <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/" exact>
-            <LandingPage />
-          </Route>
-          <Route path="/create-course"></Route>
-        </Switch>
-      </Router>
-    </StoreProvider>
+    <Observer>
+      {() => (
+        <StoreProvider>
+          <Router>
+            <Header />
+            <Switch>
+              <Route path="/landing-page">
+                <LandingPage />
+              </Route>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+              <Route path="/register">
+                <Register />
+              </Route>
+              <Route path="/create-course"></Route>
+            </Switch>
+          </Router>
+        </StoreProvider>
+      )}
+    </Observer>
   );
 };
 
