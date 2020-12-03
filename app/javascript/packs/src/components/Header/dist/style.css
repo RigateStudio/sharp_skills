@@ -1,0 +1,9 @@
+#nav {
+  background-color: #1B2B83 !important;
+  font-family: "Teko", cursive;
+  color: white !important;
+}
+#nav .navbar-brand a {
+  color: white;
+  font-family: "Damion", cursive;
+}

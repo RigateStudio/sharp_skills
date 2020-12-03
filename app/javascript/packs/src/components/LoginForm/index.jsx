@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Container, Button, Form, Alert } from "react-bootstrap";
 import Cookies from "js-cookie";
 import { StoreContext } from "../../store/index.jsx";
-///////////////////////
+
 const LoginForm = () => {
   const [input, setInput] = useState({role:"student"});
   const [token, setToken] = useState("");
@@ -18,7 +18,7 @@ const LoginForm = () => {
         password: input.password,
       },
     };
-    fetch("/api/signup", {
+    fetch("/api/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
