@@ -44,7 +44,7 @@ const CourseForm = () => {
           />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect2">
-            <Form.Label>Example multiple select</Form.Label>
+            <Form.Label>Catégorie(s)</Form.Label>
             <Form.Control as="select" multiple>
                 <CategoryList />
             </Form.Control>

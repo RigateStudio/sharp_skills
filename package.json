@@ -12,6 +12,8 @@
     "jquery": "^3.5.1",
     "js-cookie": "^2.2.1",
     "js-cookies": "^1.0.4",
+    "mobx": "^6.0.4",
+    "mobx-react": "^7.0.5",
     "poppers.js": "^1.16.1",
     "prop-type": "^0.0.1",
     "prop-types": "^15.7.2",
