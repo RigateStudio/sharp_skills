@@ -11,11 +11,13 @@ const Registration = () => {
 
   const fetchUser = () => {
     console.log("fetchUser");
+    console.log(input)
     const data = {
       user: {
         first_name: input.first_name,
         last_name: input.last_name,
         email: input.email,
+        role: input.role,
         password: input.password,
         password_confirmation: input.password_confirmation,
       },
@@ -54,6 +56,7 @@ const Registration = () => {
   };
 
   const handleInputChange = (event) => {
+    console.log(input)
     setInput({
       ...input,
       [event.target.name]: event.target.value,
@@ -118,6 +121,11 @@ const Registration = () => {
             placeholder="Password"
           />
         </Form.Group>
+        <Form.Label>Choose if you are a Student or a Teacher</Form.Label>
+        <Form.Control as="select" name="role" onMount={handleInputChange} onChange={handleInputChange}>
+          <option>Student</option>
+          <option>Teacher</option>
+        </Form.Control>
       </Form>
 
       <Button onClick={clickFetch} variant="primary" type="submit">
