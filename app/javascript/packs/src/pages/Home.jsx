@@ -7,9 +7,7 @@ import CourseIndex from "../components/course/CourseIndex"
 const Home = () => {
   return (
     <div>
-      <h1>Bienvenue sur la Homepage</h1>
-      <CourseIndex />
-      <Registration />
+      <CourseIndex/>
     </div>
   )
 }
