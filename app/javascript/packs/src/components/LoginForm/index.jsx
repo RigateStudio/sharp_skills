@@ -3,23 +3,19 @@ import { Container, Button, Form, Alert } from "react-bootstrap";
 import Cookies from "js-cookie";
 import { StoreContext } from "../../store/index.jsx";
 ///////////////////////
-const Registration = () => {
-  const [input, setInput] = useState({ role: "student" });
+const LoginForm = () => {
+  const [input, setInput] = useState({role:"student"});
   const [token, setToken] = useState("");
   const store = useContext(StoreContext);
   const [errors, setErrors] = useState([]);
 
   const fetchUser = () => {
     console.log("fetchUser()");
-    console.log(input);
+    console.log(input)
     const data = {
       user: {
-        first_name: input.first_name,
-        last_name: input.last_name,
         email: input.email,
-        role: input.role,
         password: input.password,
-        password_confirmation: input.password_confirmation,
       },
     };
     fetch("/api/signup", {
@@ -39,15 +35,14 @@ const Registration = () => {
         console.log(response);
         console.log(Cookies.get("token"));
         if (!response.errors) {
-          //console.log(response.errors)
           setErrors([]);
           store.setCurrentUser(response);
         } else {
           console.log("setErrors");
           setErrors(response.errors);
         }
-        console.log("store is");
-        console.log(store.currentUser);
+        console.log("store is")
+        console.log(store.currentUser)
       });
   };
 
@@ -58,7 +53,7 @@ const Registration = () => {
   };
 
   const handleInputChange = (event) => {
-    console.log(input);
+    console.log(input)
     setInput({
       ...input,
       [event.target.name]: event.target.value,
@@ -72,26 +67,6 @@ const Registration = () => {
       ))}
       <Form>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
-            onChange={handleInputChange}
-            name="first_name"
-            type="text"
-            placeholder="First name"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            onChange={handleInputChange}
-            name="last_name"
-            type="text"
-            placeholder="Last name"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             onChange={handleInputChange}
@@ -99,9 +74,6 @@ const Registration = () => {
             type="email"
             placeholder="Enter email"
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
@@ -113,22 +85,7 @@ const Registration = () => {
             placeholder="Password"
           />
         </Form.Group>
-
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password confirmation</Form.Label>
-          <Form.Control
-            onChange={handleInputChange}
-            name="password_confirmation"
-            type="password"
-            placeholder="Password"
-          />
-        </Form.Group>
-        <Form.Label>Choose if you are a Student or a Teacher</Form.Label>
-        <Form.Control as="select" name="role" onChange={handleInputChange}>
-          <option>student</option>
-          <option>teacher</option>
-        </Form.Control>
-      </Form>
+        </Form>
 
       <Button onClick={clickFetch} variant="primary" type="submit">
         Submit
@@ -137,4 +94,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default LoginForm;

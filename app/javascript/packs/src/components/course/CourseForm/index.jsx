@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Button, Form } from "react-bootstrap";
-import CategoryList from "../category/CategoryList.jsx"
+import CategoryList from "../../CategoryList"
 
 const CourseForm = () => {
     const [input, setInput] = useState({});

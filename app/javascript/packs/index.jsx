@@ -3,11 +3,12 @@
 // of the page.
 
 import React from "react";
-import StoreProvider from "./src/store";
+import StoreProvider from "./src/store/index.jsx";
 import ReactDOM from "react-dom";
-import Header from "./src/components/Header";
 import Home from "./src/pages/Home";
-import Register from "./src/pages/Register"
+import Register from "./src/pages/Register";
+import Header from "./src/components/Header"
+import Login from "./src/components/Login"
 import LandingPage from "./src/pages/LandingPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Observer } from "mobx-react";
@@ -16,11 +17,11 @@ import "./style.scss";
 
 const App = () => {
   return (
-    <Observer>
-      {() => (
-        <StoreProvider>
+    <StoreProvider>
+      <Observer>
+        {() => (
           <Router>
-            <Header />
+          <Header/>
             <Switch>
               <Route path="/landing-page">
                 <LandingPage />
@@ -28,15 +29,18 @@ const App = () => {
               <Route path="/" exact>
                 <Home />
               </Route>
-              <Route path="/register">
+              <Route path="/register" exact>
                 <Register />
+              </Route>
+              <Route path="/login" exact>
+                <Login />
               </Route>
               <Route path="/create-course"></Route>
             </Switch>
           </Router>
-        </StoreProvider>
-      )}
-    </Observer>
+        )}
+      </Observer>
+    </StoreProvider>
   );
 };
 

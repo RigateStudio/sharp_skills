@@ -14,10 +14,10 @@ const StoreProvider = ({ children }) => {
   return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>;
 };
 
-const Test = () => {
+/*const Test = () => {
   const store = useContext(StoreContexgt);
   console.log(store.currentUser?.first_name);
   return <Observer>{() => <h1>Hello {store.currentUser?.first_name}</h1>}</Observer>;
-};
+};*/
 
-export default StoreContext;
+export default StoreProvider;

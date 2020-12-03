@@ -24,4 +24,4 @@ const CategoryList = () => {
     )
 }
 
-export default categoryList;
+export default CategoryList;
