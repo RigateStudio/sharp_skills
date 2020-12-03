@@ -6,4 +6,8 @@ class TrainingSession < ApplicationRecord
     belongs_to :course
 
     belongs_to :room
+
+    def api
+        self.build("students")
+    end
 end
