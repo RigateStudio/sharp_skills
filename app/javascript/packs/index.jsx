@@ -7,9 +7,11 @@ import StoreProvider from "./src/store";
 import ReactDOM from "react-dom";
 import Header from "./src/components/Header";
 import Home from "./src/pages/Home";
+import LandingPage from "./src/pages/LandingPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useLocalObservable, Observer } from "mobx-react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.scss";
 
 const App = () => {
   return (
@@ -17,6 +19,9 @@ const App = () => {
       <Router>
         <Header />
         <Switch>
+          <Route path="/landing-page">
+            <LandingPage />
+          </Route>
           <Route path="/" exact>
             <Home />
           </Route>
