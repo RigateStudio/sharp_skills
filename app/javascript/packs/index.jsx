@@ -19,11 +19,11 @@ const App = () => {
       <Router>
         <Header />
         <Switch>
-          <Route path="/landing-page">
-            <LandingPage />
+          <Route path="/home">
+            <Home />
           </Route>
           <Route path="/" exact>
-            <Home />
+            <LandingPage />
           </Route>
           <Route path="/create-course"></Route>
         </Switch>

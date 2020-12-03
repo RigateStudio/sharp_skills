@@ -10,8 +10,9 @@ const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <cTAConnexion to="/Registration">Je m'inscris'</cTAConnexion>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/">Create Course</NavLink>
+          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/">LP</NavLink>
+          <NavLink to="/create-course">Create Course</NavLink>
           <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

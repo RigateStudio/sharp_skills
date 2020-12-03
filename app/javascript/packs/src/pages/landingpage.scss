@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=Teko:wght@300&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+.Container {
+  display:flex;
+  flex-direction: row;
+  color: white;
+  #half-left {
+    width:50%;
+    height:100%;
+    #left-square {
+      border-radius: 2rem ;
+      margin: 8vh 5vh 5vh 8vh;
+      width: 75vh;
+      height: 75vh;
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      overflow: visible;
+      #left-text {
+        padding: 25% 0;
+        text-align: center;
+        #left-title {
+          font-size:8rem;
+          vertical-align: middle;
+          font-family: 'Damion', cursive;
+        }
+        #left-description {
+          font-size:2.5rem;
+          vertical-align: middle;
+          font-family: 'Teko', cursive;
+        }
+      }
+    }
+  }
+  #half-right {
+    width:50%;
+    height:100%;
+    #right-square {
+      border-radius: 2rem ;
+      margin: 8vh 5vh 5vh 8vh;
+      width: 75vh;
+      height: 75vh;
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      overflow: visible;
+      background: linear-gradient(143deg, #001eff 0%, hsl(245, 100%, 25%) 100%);
+      #right-text {
+        padding: 33% 0;
+        text-align: center;
+        #right-title {
+          padding-left:1rem;
+          padding-right:1rem;
+          font-size:4rem;
+          font-family: 'Teko', cursive;
+        }
+        #right-button {
+          font-size:2rem;
+          vertical-align: middle;
+          font-family: 'Open Sans Condensed', sans-serif;
+          border-radius:2rem;
+        }
+      }
+    }
+  }
+}
