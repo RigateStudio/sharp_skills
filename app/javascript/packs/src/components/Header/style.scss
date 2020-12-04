@@ -1,12 +1,23 @@
 #nav {
-    background-color: #1B2B83 !important;
-    font-family: 'Teko', cursive;
-    color:white !important;
-    .navbar-brand {
-        a {
-            color:white;
-            font-family: 'Damion', cursive;
-        }
+    padding:0 217px 0 217px;
+    height: 117px;
+    overflow: visible;
+    background-color: #ffffff !important;
+    font-family: 'Teko', sans-serif;
+    font-size: 36px;
+}
 
-    }
+.a:hover {
+      background-color: yellow;
+      font-size: 46px;
+}
+
+.Damion {
+  font-family: "Damion", serif;
+  font-size: 36px;
+  color: #000000;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  font-weight: 400;
+  text-align: center;
 }

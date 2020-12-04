@@ -7,7 +7,8 @@ import StoreProvider from "./src/store/index.jsx";
 import ReactDOM from "react-dom";
 import Home from "./src/pages/Home";
 import Register from "./src/pages/Register";
-import Header from "./src/components/Header"
+import Header from "./src/components/Header";
+import Footer from "./src/components/Footer";
 import Login from "./src/pages/Login"
 import LandingPage from "./src/pages/LandingPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -34,6 +35,7 @@ const App = () => {
               </Route>
               <Route path="/create-course"></Route>
             </Switch>
+            <Footer/>
           </Router>
     </StoreProvider>
   );
