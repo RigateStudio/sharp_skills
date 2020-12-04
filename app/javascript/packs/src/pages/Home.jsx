@@ -17,7 +17,6 @@ console.log(store)
       <Observer>
         {() => store.currentUser?.role === "admin" && (<CourseForm/>)}
       </Observer>
-      {store.currentUser?.role === "admin" && (<CourseForm/>)}
       <CourseIndex />
       <TrainingSessions />
       </Container>
