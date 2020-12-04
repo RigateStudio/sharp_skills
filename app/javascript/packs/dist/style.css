@@ -3,7 +3,7 @@ body {
   height: 100vh;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  overflow: hidden;
-  background-color: #0015b8;
+  overflow: visible;
+  background: linear-gradient(143deg, #001eff 0%, #0b0080 100%);
   color: white;
 }

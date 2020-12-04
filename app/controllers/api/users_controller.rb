@@ -2,6 +2,10 @@ class Api::UsersController < Api::BaseController
 
     before_action :find_user, only: %w[show]
   
+    def index
+      render json: User.all
+    end
+
     def show
       render_jsonapi_response(@user)
     end
