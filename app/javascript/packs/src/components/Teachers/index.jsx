@@ -9,7 +9,7 @@ const Teachers = (props) => {
       .then((response) => {
         console.log(response);
         setUsers(response);
-        props.setInput({teacher_id : response[0].id})
+        props.setInput({...props.input, teacher_id : response[0].id})
       });
   };
 

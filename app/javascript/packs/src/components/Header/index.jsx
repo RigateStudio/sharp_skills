@@ -11,6 +11,7 @@ const Header = () => {
   
   const clickLougout = () => {
     Cookies.set("token","")
+    Cookies.set("currentUser", "")
     store.currentUser = null
   }
 

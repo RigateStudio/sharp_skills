@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import {Card} from 'react-bootstrap'
 const CourseIndex = () => {
   const [courses, setCourses] = useState([]);
 
@@ -19,11 +19,19 @@ const CourseIndex = () => {
   }, []);
 
   return (
-    <div className="Courses">
+    <>
+    <h1>Aviable Courses</h1>
+    <Card className="Courses">
       {courses.map((course) => {
-        return  <Link to="/">{course.name}</Link>;
+        return  (
+        <Card.Header>
+          <Link to="/">{course.name}</Link>
+        </Card.Header>
+        
+        )
       })}
-    </div>
+    </Card>
+    </>
   );
 };
 
