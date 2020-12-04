@@ -37,6 +37,7 @@ const LoginForm = () => {
         if (!response.errors) {
           setErrors([]);
           store.setCurrentUser(response);
+          Cookies.set("currentUser", JSON.stringify(response))
         } else {
           console.log("setErrors");
           setErrors(response.errors);

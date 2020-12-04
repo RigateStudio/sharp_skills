@@ -27,27 +27,15 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-      puts params
-      if @course.save
-        render json: {course: @course, categories: @course.categories}
-      else
-        render json: @course.errors, status: :unprocessable_entity 
-      end
+    @course.save
+    render_jsonapi_response(@course)
   end
 
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
-    respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.json {  render json: {course: @course, categories: @course.categories, training_sessions: @course.training_sessions}     }
-
-      else
-        format.html { render :edit }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
-    end
+    @course.update(course_params)
+    render_jsonapi_response(@course)
   end
 
   # DELETE /courses/1

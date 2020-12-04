@@ -53,9 +53,9 @@ const CourseForm = () => {
           />
         </Form.Group>
 
-        <Form.Label>Choose if you are a Student or a Teacher</Form.Label>
+        <Form.Label>Choose a Teacher</Form.Label>
         <Form.Control as="select" name="teacher_id" onChange={handleInputChange}>
-          <Teachers setInput={setInput}/>
+          <Teachers input={input} setInput={setInput}/>
         </Form.Control>
 
           <div>

@@ -41,6 +41,7 @@ const Registration = () => {
         if (!response.errors) {
           //console.log(response.errors)
           setErrors([]);
+          Cookies.set("currentUser", JSON.stringify(response))
           store.setCurrentUser(response);
         } else {
           console.log("setErrors");
