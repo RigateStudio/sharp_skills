@@ -15,6 +15,7 @@
     "mobx": "^6.0.4",
     "mobx-react": "^7.0.5",
     "node": "^15.3.0",
+    "node-sass": "^4.0.0",
     "poppers.js": "^1.16.1",
     "prop-type": "^0.0.1",
     "prop-types": "^15.7.2",
