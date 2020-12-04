@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Form} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { StoreContext }  from "../../store/index.jsx";
 import { Observer } from "mobx-react";
@@ -8,7 +8,7 @@ import "./style.scss";
 
 const Header = () => {
   const store = React.useContext(StoreContext);
-  
+
   const clickLougout = () => {
     Cookies.set("token","")
     store.currentUser = null
@@ -18,13 +18,14 @@ const Header = () => {
   console.log(store.currentUser)
   return (
     <Navbar id="nav" expand="lg">
-      <NavLink className="navbar-brand" to="/landing-page">
+      <NavLink className="Damion" to="/landing-page">
       Sharpskills
       </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <NavLink className="nav-link" to="/">
+      <Navbar.Collapse className="justify-content-end"
+      id="basic-navbar-nav">
+        <Nav className="justify-content-end">
+          <NavLink className="nav-link justify-content-end" to="/">
             Home
           </NavLink>
           <Observer>{ () => (
@@ -41,10 +42,10 @@ const Header = () => {
             ) : (
               <>
                 <NavLink className="dropdown-item" to="/login">
-                  Log in
+                  Je me connecte
                 </NavLink>
                 <NavLink className="dropdown-item" to="/register">
-                  Register
+                  Je me connecte
                 </NavLink>
               </>
             )}

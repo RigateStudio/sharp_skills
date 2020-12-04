@@ -7,6 +7,8 @@ import StoreProvider from "./src/store/index.jsx";
 import ReactDOM from "react-dom";
 import Home from "./src/pages/Home";
 import Register from "./src/pages/Register";
+import Header from "./src/components/Header";
+import Footer from "./src/components/Footer";
 import TrainingSessions from "./src/pages/TrainingSessions";
 import Header from "./src/components/Header"
 import Login from "./src/pages/Login"
@@ -40,6 +42,7 @@ const App = () => {
                 <TrainingSessions />
               </Route>
             </Switch>
+            <Footer/>
           </Router>
     </StoreProvider>
   );
