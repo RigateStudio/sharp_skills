@@ -12,7 +12,7 @@ const StoreProvider = ({ children }) => {
       store.currentUser = response;
     },
   }));
-
+///
   return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>;
 };
 
