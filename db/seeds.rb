@@ -24,6 +24,13 @@ puts "10 students have been created"
       password: "123123")
 end
 
+User.create(
+  first_name: "Me",
+  last_name: "Lon",
+  email: "melon@yopmail.com",
+  role: "admin",
+  password: "123123")
+
 puts "3 teachers have been created"
 
 10.times do

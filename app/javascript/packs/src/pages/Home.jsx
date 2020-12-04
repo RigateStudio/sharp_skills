@@ -1,14 +1,16 @@
 import React from "react"
-//import CourseForm from "../components/course/CourseForm"
-import Container from "react-bootstrap/Container"
-import Registration from "../components/Registration";
-import CourseIndex from "../components/course/CourseIndex"
+
+import Container from "react-bootstrap/Container";
+import CourseIndex from "../components/course/CourseIndex";
+import CourseForm from "../components/course/CourseForm";
+import TrainingSessions from "./TrainingSessions";
 
 const Home = () => {
   return (
     <div>
-      <CourseIndex/>
-
+      <CourseForm/>
+      <CourseIndex />
+      <TrainingSessions />
     </div>
   )
 }

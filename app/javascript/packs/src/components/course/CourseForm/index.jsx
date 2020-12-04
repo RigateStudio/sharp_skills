@@ -1,39 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import StoreContext from "../../../store"
 import { Button, Form } from "react-bootstrap";
 import CategoryList from "../../CategoryList";
-
+import Cookies from "js-cookie"
+import Teachers from '../../Teachers'
 const CourseForm = () => {
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState({categories: []});
   const [token, setToken] = useState("");
+  const store = useContext(StoreContext);
 
   const fetchUser = () => {
+    console.log("fetchUser()")
     const data = {
       course: {
         name: input.name,
-        teacher_id: input.password,
-        category_ids: input.category_ids,
+        teacher_id: input.teacher_id,
+        category_ids: input.categories,
       },
     };
+    console.log(data)
     fetch("/api/courses", {
       method: "post",
-      headers: { "Content-Type": "application/json", "Authorization": Cookies.get("token") },
+      headers: { "Content-Type": "application/json", Authorization: Cookies.get("token") },
       body: JSON.stringify(data),
     })
-      .then((response) => {
-        for (var pair of response.headers.entries()) {
-          // accessing the entries
-          console.log(pair);
-          if (pair[0] === "authorization") {
-            // key I'm looking for in this instance
-            Cookies.set("token", pair[1]);
-          }
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((response) => {
         console.log(response);
-        console.log(Cookies.get("token"));
       });
+  };
+
+  const handleInputChange = (event) => {
+    setInput({
+      ...input,
+      [event.target.name]: event.target.value,
+    });
+    console.log(input);
   };
 
   return (
@@ -50,15 +52,19 @@ const CourseForm = () => {
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlSelect2">
+
+        <Form.Label>Choose if you are a Student or a Teacher</Form.Label>
+        <Form.Control as="select" name="teacher_id" onChange={handleInputChange}>
+          <Teachers setInput={setInput}/>
+        </Form.Control>
+
+          <div>
           <Form.Label>Catégorie(s)</Form.Label>
-          <Form.Control as="select" multiple>
-            <CategoryList />
-          </Form.Control>
-        </Form.Group>
+            <CategoryList setInput={setInput} input={input}/>
+          </div>
       </Form>
-      <Button className="mb-5" onClick={() => clickFetch()} variant="primary" type="submit">
-        Sign up
+      <Button className="mb-5" onClick={fetchUser} variant="primary" type="submit">
+        Create
       </Button>
     </>
   );

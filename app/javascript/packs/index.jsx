@@ -9,6 +9,8 @@ import Home from "./src/pages/Home";
 import Register from "./src/pages/Register";
 import Header from "./src/components/Header";
 import Footer from "./src/components/Footer";
+import TrainingSessions from "./src/pages/TrainingSessions";
+import Header from "./src/components/Header"
 import Login from "./src/pages/Login"
 import LandingPage from "./src/pages/LandingPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -33,7 +35,12 @@ const App = () => {
               <Route path="/login" exact>
                 <Login />
               </Route>
-              <Route path="/create-course"></Route>
+              <Route path="/create-course">
+                <Home />
+              </Route>
+              <Route path="/trainings">
+                <TrainingSessions />
+              </Route>
             </Switch>
             <Footer/>
           </Router>
